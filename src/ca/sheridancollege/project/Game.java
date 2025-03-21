@@ -1,7 +1,10 @@
 /**
  * SYST 17796 Project Base code.
  * Students can modify and extend to implement their game.
- * Add your name as an author and the date!
+ *  Kartik Saini Student ID:991763064
+ * Jaskaran Singh Student ID:991790247
+ * Shazaib Hassan Student ID:991739526
+ *  Date:20 March,2025
  */
 package ca.sheridancollege.project;
 
