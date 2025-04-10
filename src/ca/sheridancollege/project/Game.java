@@ -1,34 +1,29 @@
-/**
- * SYST 17796 Project Base code.
- * Students can modify and extend to implement their game.
- *  Kartik Saini Student ID:991763064
- * Jaskaran Singh Student ID:991790247
- * Shazaib Hassan Student ID:991739526
- *  Date:20 March,2025
- */
 package ca.sheridancollege.project;
 
 import java.util.ArrayList;
 
 /**
- * The class that models your game. You should create a more specific child of this class and instantiate the methods
- * given.
+ * SYST 17796 Project Base code.
+ * Students can modify and extend to implement their game.
+ * Kartik Saini Student ID:991763064
+ * Jaskaran Singh Student ID:991790247
+ * Shazaib Hassan Student ID:991739526
+ * Date: 20 March, 2025
  *
- * @author dancye
- * @author Paul Bonenfant Jan 2020
+ * The class that models your game. You should create a more specific child of this class
+ * and instantiate the methods given.
  */
 public abstract class Game {
 
-    private final String name;//the title of the game
-    private ArrayList<Player> players;// the players of the game
+    private final String name; // the title of the game
+    protected ArrayList<Player> players = new ArrayList<>(); // the players of the game
 
     public Game(String name) {
         this.name = name;
-        players = new ArrayList();
     }
 
     /**
-     * @return the name
+     * @return the name of the game
      */
     public String getName() {
         return name;
@@ -57,5 +52,4 @@ public abstract class Game {
      * When the game is over, use this method to declare and display a winning player.
      */
     public abstract void declareWinner();
-
-}//end class
+}

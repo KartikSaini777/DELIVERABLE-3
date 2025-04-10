@@ -1,58 +1,53 @@
-/**
- * SYST 17796 Project Base code.
- * Students can modify and extend to implement their game.
- *  Kartik Saini Student ID:991763064
- * Jaskaran Singh Student ID:991790247
- * Shazaib Hassan Student ID:991739526
- *  Date:20 March,2025
- */
 package ca.sheridancollege.project;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * A concrete class that represents any grouping of cards for a Game. HINT, you might want to subclass this more than
- * once. The group of cards has a maximum size attribute which is flexible for reuse.
+ * SYST 17796 Project Base code.
+ * Students can modify and extend to implement their game.
+ * Kartik Saini Student ID:991763064
+ * Jaskaran Singh Student ID:991790247
+ * Shazaib Hassan Student ID:991739526
+ * Date: 20 March, 2025
  *
- * @author dancye
- * @author Paul Bonenfant Jan 2020
+ * A concrete class that represents any grouping of cards for a Game.
+ * The group of cards has a maximum size attribute which is flexible for reuse.
  */
 public class GroupOfCards {
 
-    //The group of cards, stored in an ArrayList
-    private ArrayList<Card> cards;
-    private int size;//the size of the grouping
+    protected int size; // max size for the group
+    protected ArrayList<Card> cards = new ArrayList<>(); // cards in the group
 
     public GroupOfCards(int size) {
         this.size = size;
     }
 
     /**
-     * A method that will get the group of cards as an ArrayList
-     *
-     * @return the group of cards.
+     * Shuffles the group of cards randomly.
      */
-    public ArrayList<Card> getCards() {
-        return cards;
-    }
-
     public void shuffle() {
         Collections.shuffle(cards);
     }
 
     /**
-     * @return the size of the group of cards
+     * @return the size of the group
      */
     public int getSize() {
         return size;
     }
 
     /**
-     * @param size the max size for the group of cards
+     * @param size the new size limit of the group
      */
     public void setSize(int size) {
         this.size = size;
     }
 
-}//end class
+    /**
+     * @return the list of cards
+     */
+    public ArrayList<Card> getCards() {
+        return cards;
+    }
+}

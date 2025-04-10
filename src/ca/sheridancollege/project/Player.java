@@ -1,52 +1,72 @@
+package ca.sheridancollege.project;
+
+import java.util.LinkedList;
+
 /**
  * SYST 17796 Project Base code.
  * Students can modify and extend to implement their game.
  * Kartik Saini Student ID:991763064
  * Jaskaran Singh Student ID:991790247
  * Shazaib Hassan Student ID:991739526
- * Date:20 March,2025
- */
-package ca.sheridancollege.project;
-
-/**
- * A class that models each Player in the game. Players have an identifier, which should be unique.
- *
- * @author dancye
- * @author Paul Bonenfant Jan 2020
+ * Date: 20 March, 2025
+ * 
+ * A class that models each Player in the game. Players have a name and a hand of cards.
  */
 public abstract class Player {
 
-    private String name; //the unique name for this player
+    private String name; // unique player name
+    protected LinkedList<Card> hand = new LinkedList<>();
 
-    /**
-     * A constructor that allows you to set the player's unique ID
-     *
-     * @param name the unique ID to assign to this player.
-     */
     public Player(String name) {
         this.name = name;
     }
 
     /**
-     * @return the player name
+     * @return the player's name
      */
     public String getName() {
         return name;
     }
 
     /**
-     * Ensure that the playerID is unique
-     *
-     * @param name the player name to set
+     * @return true if the player has cards
      */
-    public void setName(String name) {
-        this.name = name;
+    public boolean hasCards() {
+        return !hand.isEmpty();
     }
 
     /**
-     * The method to be overridden when you subclass the Player class with your specific type of Player and filled in
-     * with logic to play your game.
+     * @return the number of cards the player currently has
+     */
+    public int getCardCount() {
+        return hand.size();
+    }
+
+    /**
+     * Adds multiple cards to the player's hand
+     * @param cards cards to be collected
+     */
+    public void collectCards(LinkedList<Card> cards) {
+        hand.addAll(cards);
+    }
+
+    /**
+     * Adds a single card to the bottom of the hand
+     */
+    public void collectCard(Card card) {
+        if (card != null) hand.addLast(card);
+    }
+
+    /**
+     * Removes and returns the top card from the hand
+     * @return the top card
+     */
+    public Card playCard() {
+        return hand.pollFirst();
+    }
+
+    /**
+     * To be implemented in child class — logic for how the player takes a turn
      */
     public abstract void play();
-
 }
